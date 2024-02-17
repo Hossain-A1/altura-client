@@ -8,10 +8,12 @@ import KidsPage from "./pages/kids";
 import CartPage from "./pages/cart";
 import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
     <main>
+      <Toaster/>
       <Navber />
       <Routes>
         <Route path='/' element={<HomePage />} />

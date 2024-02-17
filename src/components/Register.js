@@ -1,20 +1,47 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import Button from "./ui/Button";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { MdLandscape } from "react-icons/md";
+import { loginPost } from "../lib/loginPost";
+
 const Register = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
-  const handleSubmit = async () => {};
+
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      setLoading(true);
+      const data = await loginPost("/api/auth/register", formData);
+
+      if (data) {
+        setLoading(true);
+        setFormData({
+          name: "",
+          email: "",
+          password: "",
+        });
+        toast.success("Register successfull");
+        navigate("/");
+      } else {
+        setLoading(false);
+      }
+    },
+    [formData, navigate]
+  );
 
   return (
     <div className='flex flex-col items-center justify-center gap-10 py-20 lg:px-40 bg-light rounded-3xl'>
       <div className='flex flex-col items-center gap-1.5'>
-        <strong><MdLandscape className="text-6xl text-gradient" /></strong>
+        <strong>
+          <MdLandscape className='text-6xl text-gradient' />
+        </strong>
         <h2>Welcome to Altura!</h2>
         <p className='text-black/50'>Please provide your details to register</p>
       </div>
@@ -67,32 +94,17 @@ const Register = () => {
             className='eq w-full rounded-xl border border-gray bg-transparent px-5 py-3 outline-none focus:border-blue'
           />
         </div>
-        <div className='flex flex-col items-start gap-1.5'>
-          <label htmlFor='photoUrl' className='cursor-pointer'>
-            Photo URL
-          </label>
-          <input
-            value={formData.photoUrl}
-            onChange={(e) =>
-              setFormData({ ...formData, photoUrl: e.target.value })
-            }
-            type='text'
-            id='photoUrl'
-            placeholder='Inter your photo URL from pexels/unplash/cloudinary'
-            className='eq w-full rounded-xl border border-gray bg-transparent px-5 py-3 outline-none focus:border-blue'
-          />
-        </div>
 
         <Button variant='gradient' type='submit' isLoading={loading}>
           Register
         </Button>
 
-        <p>
+        <div className="flex gap-1 items-center justify-center">
           <span className='text-dark'>Already have an account?</span>{" "}
           <Link to='/login' className='text-blue'>
             Login
           </Link>
-        </p>
+        </div>
       </form>
     </div>
   );
