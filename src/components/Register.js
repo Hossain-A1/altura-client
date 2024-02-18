@@ -4,9 +4,11 @@ import Button from "./ui/Button";
 import { useCallback, useState } from "react";
 import { MdLandscape } from "react-icons/md";
 import { loginPost } from "../lib/loginPost";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Register = () => {
   const navigate = useNavigate();
+  const { dispatch} = useAuthContext()
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -27,13 +29,15 @@ const Register = () => {
           email: "",
           password: "",
         });
+        dispatch({type:"LOGIN",payload:data})
+        localStorage.setItem("user",JSON.stringify(data))
         toast.success("Register successfull");
         navigate("/");
       } else {
         setLoading(false);
       }
     },
-    [formData, navigate]
+    [formData,dispatch, navigate]
   );
 
   return (

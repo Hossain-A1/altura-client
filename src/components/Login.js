@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoMdLogIn } from "react-icons/io";
 import { loginPost } from "../lib/loginPost";
 import toast from "react-hot-toast";
+import { useAuthContext } from "../hooks/useAuthContext";
 const Login = () => {
-  const navigate =useNavigate()
+  const navigate = useNavigate();
+  const { dispatch } = useAuthContext();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -24,13 +26,17 @@ const Login = () => {
           email: "",
           password: "",
         });
+
+        dispatch({ type: "LOGIN", payload: data });
+        localStorage.setItem("user", JSON.stringify(data));
         toast.success("Login successfull");
-      navigate('/')
+        navigate("/");
+        setLoading(false);
       } else {
         setLoading(false);
       }
     },
-    [formData,navigate]
+    [formData, dispatch, navigate]
   );
   return (
     <div className='flex flex-col justify-center  items-center w-full   gap-10  py-20 lg:px-40 bg-light rounded-3xl'>

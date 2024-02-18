@@ -7,7 +7,7 @@ import hero_1 from "../assets/images/hero-1.png";
 
 const Hero = () => {
   return (
-    <section className='w-full h-[100vh] sp'>
+    <section className='w-full h-[100vh]'>
       <div className='relative h-full z-40 w-full'>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-5 h-full w-full '>
           <div className='flex flex-col   items-start justify-center '>

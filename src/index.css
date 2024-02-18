@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-  @tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -15,17 +15,16 @@ html {
 h1 {
   @apply lg:text-6xl max-md:text-2xl font-[400];
 }
-h2{
-  @apply text-xl font-semibold
+h2 {
+  @apply text-xl font-semibold;
 }
 p {
   @apply text-lg max-md:text-sm text-dim_dark;
 }
-.active{
-  @apply text-gradient
+.active  {
+  @apply text-gradient bg-dark/10  eq;
 }
 
-/* LINK STYLES */
-.link-item:focus {
-  @apply eq  text-gradient;
+.active-text{
+  @apply text-black
 }

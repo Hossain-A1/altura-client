@@ -15,7 +15,7 @@ module.exports = {
         dark: "#888688",
         dim_dark: "#E5E1DA",
         light: "#ffffff",
-        blue: "#5800FF",
+        blue: "#0766AD",
         orange: "#ff006e",
         gradient:"#7752FE"
       },
