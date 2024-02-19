@@ -10,15 +10,10 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 const Navber = () => {
   const [activeLink, setActiveLink] = useState("");
-  const { user, dispatch } = useAuthContext();
-  console.log(user);
+  const { user } = useAuthContext();
   // Function to handle link click
   const handleLinkClick = (link) => {
     setActiveLink(link);
-  };
-
-  const handleLogout = () => {
-    dispatch({ type: "LOGOUT" });
   };
 
   return (
@@ -47,11 +42,8 @@ const Navber = () => {
               <strong className='link-item lg:text-2xl max-lg:text-xl'>
                 <IoMdHome />
               </strong>{" "}
-              <strong className={` ${
-                activeLink === "/" ? "active-text" : ""
-              }`}>
-
-              Home
+              <strong className={` ${activeLink === "/" ? "active-text" : ""}`}>
+                Home
               </strong>
             </Link>
           </li>
@@ -66,11 +58,10 @@ const Navber = () => {
               <strong className='link-item lg:text-2xl max-lg:text-xl'>
                 <IoManSharp />
               </strong>{" "}
-              <strong className={` ${
-                activeLink === "/men" ? "active-text" : ""
-              }`}>
-
-              Men
+              <strong
+                className={` ${activeLink === "/men" ? "active-text" : ""}`}
+              >
+                Men
               </strong>
             </Link>
           </li>
@@ -85,11 +76,10 @@ const Navber = () => {
               <strong className='link-item lg:text-2xl max-lg:text-xl'>
                 <IoWoman />
               </strong>
-              <strong className={` ${
-                activeLink === "/women" ? "active-text" : ""
-              }`}>
-
-              Women
+              <strong
+                className={` ${activeLink === "/women" ? "active-text" : ""}`}
+              >
+                Women
               </strong>
             </Link>
           </li>
@@ -104,11 +94,10 @@ const Navber = () => {
               <strong className='link-item lg:text-2xl max-lg:text-xl'>
                 <FaBaby />
               </strong>{" "}
-              <strong className={` ${
-                activeLink === "/kids" ? "active-text" : ""
-              }`}>
-
-              Kids
+              <strong
+                className={` ${activeLink === "/kids" ? "active-text" : ""}`}
+              >
+                Kids
               </strong>
             </Link>
           </li>
@@ -123,11 +112,10 @@ const Navber = () => {
               <strong className='link-item lg:text-2xl max-lg:text-xl'>
                 <FaHistory />
               </strong>{" "}
-              <strong className={` ${
-                activeLink === "/story" ? "active-text" : ""
-              }`}>
-
-              Our story
+              <strong
+                className={` ${activeLink === "/story" ? "active-text" : ""}`}
+              >
+                Our story
               </strong>
             </Link>
           </li>
@@ -143,27 +131,38 @@ const Navber = () => {
                 <strong className=' lg:text-2xl max-lg:text-xl'>
                   <FaCartPlus />
                 </strong>{" "}
-                <strong className={` ${
-                activeLink === "/cart" ? "active-text" : ""
-              }`}>
-
-              Cart
-              </strong>
+                <strong
+                  className={` ${activeLink === "/cart" ? "active-text" : ""}`}
+                >
+                  Cart
+                </strong>
               </Link>
             </li>
 
             <div className='w-full flex  items-center justify-center'>
               {user ? (
-                <li className='flex flex-col items-center '>
+                <li
+                  className={`flex flex-col items-center text-dark  w-full py-2 rounded-xl ${
+                    activeLink === "/profile" ? "active" : ""
+                  }`}
+                >
                   <Link
                     to='/profile'
                     className={`border-blue text-dark border p-1 
                     rounded-full ${activeLink === "/profile" ? "active" : ""}`}
                     onClick={() => handleLinkClick("/profile")}
                   >
-                    <GrUserManager className='text-2xl ' />
+                    <strong>
+                      <GrUserManager className='text-2xl ' />
+                    </strong>
                   </Link>
-                  <small>profile</small>
+                  <small
+                    className={` ${
+                      activeLink === "/profile" ? "active-text" : ""
+                    }`}
+                  >
+                    profile
+                  </small>
                 </li>
               ) : (
                 <Link

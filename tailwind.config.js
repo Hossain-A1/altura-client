@@ -16,7 +16,7 @@ module.exports = {
         dim_dark: "#E5E1DA",
         light: "#ffffff",
         blue: "#0766AD",
-        orange: "#ff006e",
+        red: "#F34573",
         gradient:"#7752FE"
       },
       fontFamily: {

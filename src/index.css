@@ -15,11 +15,9 @@ html {
 h1 {
   @apply lg:text-6xl max-md:text-2xl font-[400];
 }
-h2 {
-  @apply text-xl font-semibold;
-}
+
 p {
-  @apply text-lg max-md:text-sm text-dim_dark;
+  @apply text-lg max-md:text-sm text-dark;
 }
 .active  {
   @apply text-gradient bg-dark/10  eq;

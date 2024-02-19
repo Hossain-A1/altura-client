@@ -14,7 +14,7 @@ export const buttonVariance= cva(
           'border-dark bg-transparent text-dark hover:bg-dark hover:text-white',
         ghost:
           'border-transparent bg-transprarnt  text-dark hover:border-gray hover:bg-gray',
-        rose: 'border-red bg-red text-white hover:bg-red/90 hover:border-red/80',
+        red: 'border-red bg-red text-white hover:bg-red/90 hover:border-red/80',
         love: 'border-pink bg-pink text-dark hover:border-pink/90 hover:bg-pink/80',
         halloween:
           'border-orange bg-orange text-dark hover:border-orange/90 capitalize hover:bg-orange/80',

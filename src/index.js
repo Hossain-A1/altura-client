@@ -8,7 +8,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <main className=' bg-light flex flex-col items-end container sp'>
+    <main className=' bg-light flex flex-col items-end container sp '>
       <BrowserRouter>
         <div className='md:w-[calc(100vw-14rem)] w-full h-full'>
           <AuthContextProvider>

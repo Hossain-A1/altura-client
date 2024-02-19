@@ -1,9 +1,7 @@
 import { createContext, useReducer } from "react";
-
+const userData = localStorage.getItem("user");
 const initialState = {
-  user: localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user"))
-    : null,
+  user: userData ? JSON.parse(userData) : null,
 };
 
 export const authReducer = (state, action) => {
