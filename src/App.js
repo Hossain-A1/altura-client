@@ -10,6 +10,7 @@ import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import { Toaster } from "react-hot-toast";
 import ProfilePage from "./pages/profile";
+import Products from "./pages/products";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Navber />
       <Routes>
         <Route path='/' element={<HomePage />} />
+        <Route path='/products' element={<Products />} />
         <Route path='/men' element={<MenPage />} />
         <Route path='/women' element={<WomenPage />} />
         <Route path='/kids' element={<KidsPage />} />

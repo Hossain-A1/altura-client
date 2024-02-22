@@ -27,7 +27,7 @@ const Profile = () => {
               />
             </figure> */}
 
-            <div className='bg-light w-full h-full flex flex-col gap-5 p-5 rounded-2xl '>
+            <div className='bg-light w-full h-full flex flex-col gap-5 p-5 rounded-2xl  '>
               <div className='flex flex-col items-center justify-center  mt-5'>
                 <h2 className='lg:text-4xl max-lg:text-2xl'>{name}</h2>
                 <strong className='text-sm font-light text-yellow-700'>
@@ -36,21 +36,25 @@ const Profile = () => {
                 </strong>
               </div>
               <hr className='w-full' />
-              <div className='flex items-center justify-between'>
+              <div className='flex max-md:flex-col items-center justify-between'>
                 <p>Role:</p>
                 <h4>{role}</h4>
               </div>
-              <div className='flex items-center justify-between'>
+              <div className='flex max-md:flex-col items-center justify-between'>
                 <p>ID:</p>
                 <h4>{_id}</h4>
               </div>
-              <div className='flex items-center justify-between'>
+              <div className='flex max-md:flex-col items-center justify-between'>
                 <p>Email:</p>
                 <h4>{email}</h4>
               </div>
 
               <div className='flex items-center justify-center'>
-                {user && <Button variant='red' onClick={handleLogout}>Logout</Button>}
+                {user && (
+                  <Button variant='red' onClick={handleLogout}>
+                    Logout
+                  </Button>
+                )}
               </div>
             </div>
           </div>

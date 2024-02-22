@@ -1,7 +1,7 @@
 import useSWR from "swr";
 
-const fetcher = (url, token = "") => {
-  const res = fetch(url, {
+const fetcher =async(url, token = "") => {
+  const res =await fetch(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -13,7 +13,7 @@ const fetcher = (url, token = "") => {
 
 const useFetch = (endPoint, token = "") => {
   const { data, error } = useSWR(
-    `${process.env.REACT_APP_API_BASE_URL}${endPoint}`,
+    `${process.env.REACT_APP_API_BASE_URL}${endPoint}`, 
     (url) => fetcher(url, token)
   );
   const isLoading = !data && !error;

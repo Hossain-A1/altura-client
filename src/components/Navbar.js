@@ -5,7 +5,7 @@ import { GrUserManager } from "react-icons/gr";
 import { IoManSharp, IoWoman } from "react-icons/io5";
 import { FaHistory, FaCartPlus, FaBaby } from "react-icons/fa";
 import { cn } from "../lib/utils";
-import Button, { buttonVariance } from "./ui/Button";
+import  { buttonVariance } from "./ui/Button";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 const Navber = () => {
@@ -34,7 +34,7 @@ const Navber = () => {
           <li className=' w-full '>
             <Link
               to='/'
-              className={`px-4 py-2 rounded-xl w-full text-dark flex lg:gap-5 max-lg:flex-col leading-[0.85rem] items-center ${
+              className={`lg:px-4 py-2 rounded-xl w-full text-dark flex lg:gap-5 max-lg:flex-col leading-[0.85rem] items-center ${
                 activeLink === "/" ? "active" : ""
               }`}
               onClick={() => handleLinkClick("/")}
@@ -50,7 +50,7 @@ const Navber = () => {
           <li className='w-full'>
             <Link
               to='/men'
-              className={`px-4 py-2 rounded-xl w-full text-dark flex lg:gap-5 max-lg:flex-col leading-[0.85rem] items-center ${
+              className={`lg:px-4 px-2 py-2 rounded-xl w-full text-dark flex lg:gap-5 max-lg:flex-col leading-[0.85rem] items-center ${
                 activeLink === "/men" ? "active" : ""
               }`}
               onClick={() => handleLinkClick("/men")}
@@ -68,7 +68,7 @@ const Navber = () => {
           <li className='w-full'>
             <Link
               to='/women'
-              className={`px-4 py-2 rounded-xl w-full text-dark flex lg:gap-5 max-lg:flex-col leading-[0.85rem] items-center ${
+              className={`lg:px-4 px-2 py-2 rounded-xl w-full text-dark flex lg:gap-5 max-lg:flex-col leading-[0.85rem] items-center ${
                 activeLink === "/women" ? "active" : ""
               }`}
               onClick={() => handleLinkClick("/women")}
@@ -86,7 +86,7 @@ const Navber = () => {
           <li className='w-full'>
             <Link
               to='/kids'
-              className={`px-4 py-2 rounded-xl w-full text-dark flex lg:gap-5 max-lg:flex-col leading-[0.90rem] items-center ${
+              className={`lg:px-4 px-2 py-2 rounded-xl w-full text-dark flex lg:gap-5 max-lg:flex-col leading-[0.90rem] items-center ${
                 activeLink === "/kids" ? "active" : ""
               }`}
               onClick={() => handleLinkClick("/kids")}
@@ -104,7 +104,7 @@ const Navber = () => {
           <li className='w-full'>
             <Link
               to='/story'
-              className={`px-4 py-2 rounded-xl w-full text-dark flex lg:gap-5 max-lg:flex-col leading-[0.85rem] items-center ${
+              className={`lg:px-4 px-2 py-2 rounded-xl w-full text-dark flex lg:gap-5 max-lg:flex-col leading-[0.85rem] items-center ${
                 activeLink === "/story" ? "active" : ""
               }`}
               onClick={() => handleLinkClick("/story")}
@@ -123,7 +123,7 @@ const Navber = () => {
             <li className='w-full'>
               <Link
                 to='/cart'
-                className={`px-4 py-2 rounded-xl w-full text-dark flex lg:gap-5 max-lg:flex-col leading-[0.85rem] items-center ${
+                className={`lg:px-4 px-2 py-2 rounded-xl w-full text-dark flex lg:gap-5 max-lg:flex-col leading-[0.85rem] items-center ${
                   activeLink === "/cart" ? "active" : ""
                 }`}
                 onClick={() => handleLinkClick("/cart")}
