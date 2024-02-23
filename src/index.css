@@ -29,3 +29,13 @@ p {
 .active-text{
   @apply text-black
 }
+
+/* size style */
+.size-style{
+  @apply bg-black p-2 rounded-full text-light text-sm cursor-pointer 
+}
+
+
+.size-style:focus{
+  @apply bg-blue text-light
+}

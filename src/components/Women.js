@@ -24,7 +24,7 @@ const Women = ({ shoe }) => {
             <CurrencyFormatter amount={shoe.price} />
           </span>
           <Link
-            to={`/men/${shoe._id}`}
+            to={`/women/${shoe._id}`}
             className={cn(buttonVariance({ variant: "red" }))}
           >
             View details

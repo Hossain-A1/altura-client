@@ -13,14 +13,16 @@ module.exports = {
     extend: {
       colors: {
         dark: "#888688",
+        black: "#1F2544",
         dim_dark: "#E5E1DA",
         light: "#ffffff",
         blue: "#0766AD",
         red: "#F34573",
-        gradient:"#7752FE"
+        gradient: "#7752FE",
+        orange: "#F7B633",
       },
       fontFamily: {
-        sans:['Roboto', 'sans-serif'],
+        sans: ["Roboto", "sans-serif"],
       },
     },
   },

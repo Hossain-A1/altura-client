@@ -11,6 +11,9 @@ import RegisterPage from "./pages/register";
 import { Toaster } from "react-hot-toast";
 import ProfilePage from "./pages/profile";
 import Products from "./pages/products";
+import MenId from "./pages/menId";
+import WomenId from "./pages/womenId";
+import KidId from "./pages/kidId";
 
 const App = () => {
   return (
@@ -21,8 +24,11 @@ const App = () => {
         <Route path='/' element={<HomePage />} />
         <Route path='/products' element={<Products />} />
         <Route path='/men' element={<MenPage />} />
+        <Route path='/men/:id' element={<MenId />} />
         <Route path='/women' element={<WomenPage />} />
+        <Route path='/women/:id' element={<WomenId />} />
         <Route path='/kids' element={<KidsPage />} />
+        <Route path='/kid/:id' element={<KidId />} />
         <Route path='/story' element={<OurStore />} />
         <Route path='/cart' element={<CartPage />} />
         <Route path='/login' element={<LoginPage />} />

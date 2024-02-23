@@ -4,7 +4,6 @@ import { buttonVariance } from "./ui/Button";
 import { CurrencyFormatter } from "./ui/CurrencyFormatter";
 
 const Men = ({ shoe }) => {
-  console.log(shoe);
   return (
     <div>
       <div className='shadow-md rounded-xl overflow-hidden space-y-2 py-1'>
