@@ -13,7 +13,7 @@ const Kids = ({ shoe }) => {
             src={shoe.images[0]}
             alt='men-shoe'
             property=''
-            className='h-full w-full object-fill '
+            className='h-full w-full object-fill  '
           />
           <strong className='absolute top-1 left-2 text-xl'>
             {shoe.title}

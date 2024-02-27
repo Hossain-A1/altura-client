@@ -22,7 +22,7 @@ export const buttonVariance= cva(
           ' border text-sm border-orange bg-pink w-full text-dark hover:border-pink/90 hover:bg-pink/90',
         success:
           'border-green bg-green text-dark hover:border-green/90 hover:bg-green/80',
-        ocen: 'border-blue bg-blue text-dark hover:border-blue/90 hover:bg-blue/80',
+        ocen: 'border-blue bg-blue text-light hover:border-blue/90 hover:bg-blue/80',
         gradient:
           'border-gradient bg-gradient text-white hover:border-gradient/90 hover:bg-gradient/90',
       },

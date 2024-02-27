@@ -4,22 +4,24 @@ import { useState } from "react";
 import { cn } from "../../lib/utils";
 import { buttonVariance } from "../ui/Button";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../hooks/useCartContext";
 
 const ProductDetails = ({ shoe }) => {
   const [activeItem, setActiveItem] = useState(shoe.images[0]);
+  const { dispatch } = useCartContext();
+  
 
   return (
     <div>
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
-        <div className='w-full h-3/4 space-y-5'>
+        <div className='w-full h-3/4 space-y-5 '>
           <figure className='  w-full h-full overflow-hidden'>
             <img
               src={activeItem}
               alt={shoe.title}
               height={720}
               width={1280}
-              property=''
-              className='h-full w-full object-fill '
+              className='h-full w-full object-fill overflow-hidden '
             />
           </figure>
 
@@ -108,6 +110,9 @@ const ProductDetails = ({ shoe }) => {
           </div>
           <div className='pt-5'>
             <Link
+              onClick={() =>
+                dispatch({ type: "ADD_TO_CART", payload:{...shoe,count:0} })
+              }
               to='/cart'
               className={cn(
                 buttonVariance({ variant: "gradient", size: "full" })
