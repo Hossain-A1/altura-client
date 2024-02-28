@@ -38,6 +38,7 @@ const Navber = () => {
                 activeLink === "/" ? "active" : ""
               }`}
               onClick={() => handleLinkClick("/")}
+            
             >
               <strong className='link-item lg:text-2xl max-lg:text-xl'>
                 <IoMdHome />

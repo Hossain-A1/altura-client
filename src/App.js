@@ -21,11 +21,11 @@ const App = () => {
       <Navber />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/men' element={<MenPage />} />
+        <Route path='/men' element={<MenPage native />} />
         <Route path='/men/:id' element={<MenId />} />
-        <Route path='/women' element={<WomenPage />} />
+        <Route path='/women' element={<WomenPage native />} />
         <Route path='/women/:id' element={<WomenId />} />
-        <Route path='/kids' element={<KidsPage />} />
+        <Route path='/kids' element={<KidsPage native />} />
         <Route path='/kid/:id' element={<KidId />} />
         <Route path='/story' element={<OurStore />} />
         <Route path='/cart' element={<CartPage />} />

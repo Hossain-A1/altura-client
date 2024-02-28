@@ -30,7 +30,10 @@ const Kids = ({ shoe }) => {
             View details
           </Link>
         </div>
+
+    
       </div>
+     
     </div>
   );
 };

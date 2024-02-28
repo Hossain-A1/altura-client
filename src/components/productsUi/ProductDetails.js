@@ -85,7 +85,7 @@ const ProductDetails = ({ shoe }) => {
                     key={index}
                     onClick={() => setActiveItem(activeItem)}
                     style={{ backgroundColor: color }}
-                    className='w-8 h-8 rounded-full cursor-pointer f '
+                    className='w-8 h-8 rounded-full cursor-pointer  '
                   ></strong>
                 ))}
               </div>
@@ -111,7 +111,7 @@ const ProductDetails = ({ shoe }) => {
           <div className='pt-5'>
             <Link
               onClick={() =>
-                dispatch({ type: "ADD_TO_CART", payload:{...shoe,count:0} })
+                dispatch({ type: "ADD_TO_CART", payload:shoe})
               }
               to='/cart'
               className={cn(

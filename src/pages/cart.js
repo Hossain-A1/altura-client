@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 const CartPage = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const { cartItems } = useCartContext();
+  const { cartItems ,dispatch} = useCartContext();
   const total = () => {
     const calcTotal = cartItems.reduce(
       (acc, item) => (acc += item.price * item.count),
@@ -56,7 +56,7 @@ const CartPage = () => {
                   </div>
                   
                 ))}
-                    <div className=' border-t space-y-3 '>
+                    <div className=' border-t space-y-3 py-3 '>
                 <div className='flex justify-between'>
                   <h3 className='text-sm text-gray'>Delivery charge</h3>
                   <h3 className='text-sm text-gray'>
@@ -71,7 +71,7 @@ const CartPage = () => {
                       {" "}
                       <TbTruckDelivery className='text-sm text-gray ' />
                     </span>
-                    <h2 className='text-sm text-dark '> Nur Express</h2>
+                    <h2 className='text-sm text-dark '> Altura Express</h2>
                   </div>
                   <div className='flex items-center gap-1'>
                     <span className='text-sm text-gray '>
@@ -129,7 +129,7 @@ const CartPage = () => {
         </div>
 
         <div className='flex justify-between '>
-          <Button variant='red'>Clear All cart</Button>
+          <Button variant='red' onClick={()=>dispatch({type:"CLEAR_CART"})}>Clear All cart</Button>
           <Link
             to='/'
             className={cn(buttonVariance({ variant: "ocen" }))}

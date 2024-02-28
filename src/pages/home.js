@@ -1,12 +1,16 @@
 import Hero from "../components/Hero";
-import Story from "../components/Story";
 import Testimonial from "../components/Testimonial";
+import KidsPage from "./kids";
+import MenPage from "./men";
+import WomenPage from "./women";
 
 const HomePage = () => {
   return (
-    <main className=''>
+    <main className='space-y-5'>
       <Hero />
-      <Story/>
+      <MenPage />
+      <WomenPage />
+      <KidsPage />
       <Testimonial />
     </main>
   );

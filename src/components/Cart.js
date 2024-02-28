@@ -1,5 +1,7 @@
 import { useCartContext } from "../hooks/useCartContext";
 import { IoMdRemoveCircleOutline } from "react-icons/io";
+import { CurrencyFormatter } from "./ui/CurrencyFormatter";
+import { useState } from "react";
 const Cart = ({ cart }) => {
   const { dispatch } = useCartContext();
 
@@ -17,18 +19,31 @@ const Cart = ({ cart }) => {
 
           <div>
             <i>{cart.title}</i>
-            <div className='flex '>
+            <div className='flex gap-5'>
               <div className='color-shoe'>
-                <select name='color' id=''>
-                  {cart.colors[0]}
+                <select name='color' id='color'>
+                <option >color</option>
+                  {cart.colors.map((color, index) => (
+                    <option
+                      key={index}
+                      value={color}
+                      style={{ backgroundColor: color }}
+                    ></option>
+                  ))}
                 </select>
               </div>
               <div className='size-shoe'>
-                <select name='size' id=''>
-                  tt
+                <select name='size' id='size'>
+                  <option >size</option>
+                  {cart.size.map((size, index) => (
+                    <option key={index} value={size}>
+                      {size}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
+
             <u className='text-xs'>Add to Favourite</u>
           </div>
         </div>
@@ -36,7 +51,7 @@ const Cart = ({ cart }) => {
           <button
             onClick={() => dispatch({ type: "REMOVE_CART", payload: cart })}
           >
-            <IoMdRemoveCircleOutline className="text-xl" />
+            <IoMdRemoveCircleOutline className='text-xl text-red' />
           </button>
           <div className='flex   border-2 border-blue items-center justify-center'>
             <button
@@ -57,7 +72,9 @@ const Cart = ({ cart }) => {
               +
             </button>
           </div>
-          <h2>{cart.price}</h2>
+          <h2>
+            <CurrencyFormatter amount={cart.price * cart.count} />
+          </h2>
         </div>
       </div>
     </div>

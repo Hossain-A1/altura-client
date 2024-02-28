@@ -17,7 +17,7 @@ export const cartReducer = (state, action) => {
       if (existedItemIndex >= 0) {
         state.cartItems[existedItemIndex].count += 1;
       } else {
-        const assembled = { ...action.payload };
+        const assembled = { ...action.payload, count: 0};
         state.cartItems.push(assembled);
         toast.success("Item added Successfully!");
       }
@@ -43,6 +43,7 @@ export const cartReducer = (state, action) => {
 
     case "CLEAR_CART": {
       toast.success("All carts clear!");
+      localStorage.removeItem("cart");
       return { ...state, cartItems: [] };
     }
     case "INCREMENT_CART": {
@@ -55,11 +56,10 @@ export const cartReducer = (state, action) => {
           ...updatedCartItems[itemIndex],
           count: updatedCartItems[itemIndex].count + 1,
         };
-
+        toast.success("Quantity increased");
         // Update local storage with the updated cart items
         localStorage.setItem("cart", JSON.stringify(updatedCartItems));
 
-        toast.success("Quantity increased");
         return { ...state, cartItems: updatedCartItems };
       }
       return state; // Return the original state if item is not found or count is negative
