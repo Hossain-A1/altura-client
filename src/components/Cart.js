@@ -1,7 +1,6 @@
 import { useCartContext } from "../hooks/useCartContext";
 import { IoMdRemoveCircleOutline } from "react-icons/io";
 import { CurrencyFormatter } from "./ui/CurrencyFormatter";
-import { useState } from "react";
 const Cart = ({ cart }) => {
   const { dispatch } = useCartContext();
 

@@ -9,12 +9,11 @@ import  { buttonVariance } from "./ui/Button";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 const Navber = () => {
-  const [activeLink, setActiveLink] = useState("");
+  const [activeLink, setActiveLink] = useState("/");
   const { user } = useAuthContext();
-  // Function to handle link click
-  const handleLinkClick = (link) => {
-    setActiveLink(link);
-  };
+ 
+
+ 
 
   return (
     <header className='lg:h-[100vh] w-40   max-lg:h-20 max-md:w-full  bg-light shadow-sm border-dark/70 lg:border-r-2 max-lg:border-t-2  border-bsticky md:top-0 left-0 bottom-0 border-b border-b-dim_dark/30 fixed  z-[999]'>
@@ -23,13 +22,7 @@ const Navber = () => {
           <li className='flex flex-col items-center  max-md:hidden'>
             <strong className='text-gradient  text-2xl'>Altura</strong>
 
-            <div className=''>
-              <input
-                type='search'
-                placeholder='Search shoes'
-                className='py-1 rounded-full px-2 w-full max-md:text-xs outline-none bg-dark text-black '
-              />
-            </div>
+          
           </li>
           <li className=' w-full '>
             <Link

@@ -17,7 +17,7 @@ export const cartReducer = (state, action) => {
       if (existedItemIndex >= 0) {
         state.cartItems[existedItemIndex].count += 1;
       } else {
-        const assembled = { ...action.payload, count: 0};
+        const assembled = { ...action.payload, count: 0 };
         state.cartItems.push(assembled);
         toast.success("Item added Successfully!");
       }
@@ -69,17 +69,32 @@ export const cartReducer = (state, action) => {
       const itemIndex = state.cartItems.findIndex(
         (item) => item._id === action.payload
       );
-      if (state.cartItems[itemIndex].count > 1) {
-        state.cartItems[itemIndex].count -= 1;
-        toast.success("Quantity decreased!");
-      } else if (state.cartItems[itemIndex].count === 1) {
+      if (itemIndex !== -1 && state.cartItems[itemIndex].count === 1) {
+        // If count is 1, remove the item from the cart
         const updatedCartItems = state.cartItems.filter(
-          (item) => item._id !== action.payload
+          (item, index) => index !== itemIndex
         );
+        toast.success("Item removed from cart");
+        // Update local storage with the updated cart items
+        localStorage.setItem("cart", JSON.stringify(updatedCartItems));
+
+        return { ...state, cartItems: updatedCartItems };
+      } else if (itemIndex !== -1 && state.cartItems[itemIndex].count > 0) {
+        // If count is greater than 0, decrease the quantity
+        const updatedCartItems = [...state.cartItems];
+        updatedCartItems[itemIndex] = {
+          ...updatedCartItems[itemIndex],
+          count: updatedCartItems[itemIndex].count - 1,
+        };
+        toast.success("Quantity decreased");
+        // Update local storage with the updated cart items
+        localStorage.setItem("cart", JSON.stringify(updatedCartItems));
+
         return { ...state, cartItems: updatedCartItems };
       }
-      return { ...state };
+      return state;
     }
+
     default:
       return state;
   }

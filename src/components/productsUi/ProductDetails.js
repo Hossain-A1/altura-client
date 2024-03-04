@@ -1,20 +1,24 @@
-import Review from "../ui/Review";
-import { CurrencyFormatter } from "../ui/CurrencyFormatter";
-import { useState } from "react";
-import { cn } from "../../lib/utils";
-import { buttonVariance } from "../ui/Button";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../hooks/useCartContext";
+import { buttonVariance } from "../ui/Button";
+import { CurrencyFormatter } from "../ui/CurrencyFormatter";
+import { cn } from "../../lib/utils";
+import Review from "../ui/Review";
 
 const ProductDetails = ({ shoe }) => {
   const [activeItem, setActiveItem] = useState(shoe.images[0]);
+  const [selectedSize, setSelectedSize] = useState(shoe.size[0]); // Initialize selectedSize with the first size
   const { dispatch } = useCartContext();
-  
+
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
+  };
 
   return (
     <div>
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
-        <div className='w-full h-3/4 space-y-5 '>
+        <div className='w-full h-3/4 space-y-5  '>
           <figure className='  w-full h-full overflow-hidden'>
             <img
               src={activeItem}
@@ -68,9 +72,13 @@ const ProductDetails = ({ shoe }) => {
             <div className='space-y-1 py-5'>
               <b className='text-dark'>SIZE</b>
               <div className='flex whitespace-nowrap items-center gap-1'>
-                {shoe.size.map((ele, i) => (
-                  <strong key={i} className='size-style'>
-                    {ele}
+                {shoe.size.map((size, i) => (
+                  <strong
+                    key={i}
+                    onClick={() => handleSizeClick(size)}
+                    className={`size-style ${selectedSize === size ? 'hover:bg-blue text-white' : ''}`}
+                  >
+                    {size}
                   </strong>
                 ))}
               </div>
@@ -83,7 +91,7 @@ const ProductDetails = ({ shoe }) => {
                 {shoe.colors.map((color, index) => (
                   <strong
                     key={index}
-                    onClick={() => setActiveItem(activeItem)}
+                    onClick={() => setActiveItem(shoe.images[index])}
                     style={{ backgroundColor: color }}
                     className='w-8 h-8 rounded-full cursor-pointer  '
                   ></strong>
@@ -110,9 +118,7 @@ const ProductDetails = ({ shoe }) => {
           </div>
           <div className='pt-5'>
             <Link
-              onClick={() =>
-                dispatch({ type: "ADD_TO_CART", payload:shoe})
-              }
+              onClick={() => dispatch({ type: "ADD_TO_CART", payload: shoe })}
               to='/cart'
               className={cn(
                 buttonVariance({ variant: "gradient", size: "full" })

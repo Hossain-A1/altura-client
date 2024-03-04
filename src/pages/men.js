@@ -8,6 +8,7 @@ import { buttonVariance } from "../components/ui/Button";
 
 const MenPage = ({native}) => {
   const { data: shoes, isLoading, error } = useFetch('/api/products');
+  
   return (
     <div className="space-y-5 ">
       {error && <Error error={error} />}

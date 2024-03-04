@@ -13,6 +13,7 @@ import ProfilePage from "./pages/profile";
 import MenId from "./pages/menId";
 import WomenId from "./pages/womenId";
 import KidId from "./pages/kidId";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/profile' element={<ProfilePage />} />
       </Routes>
+      <Footer/>
     </main>
   );
 };
