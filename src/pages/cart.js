@@ -15,7 +15,6 @@ import axios from "axios";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
-
 const CartPage = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -35,10 +34,10 @@ const CartPage = () => {
 
   const handleCheckOut = async () => {
     if (!user) {
-      navigate("/");
+      navigate("/login");
       return;
     }
-    setIsLoading(true);
+
     const stripe = await stripePromise;
     if (!stripe) {
       throw new Error("Failed to load Stripe script");
@@ -58,11 +57,11 @@ const CartPage = () => {
       if (!session || !session.id) {
         throw new Error("Invalid checkout session");
       }
-  
+
       const result = await stripe.redirectToCheckout({
         sessionId: res.data.id,
       });
-  
+
       if (result?.error) {
         console.log(result.error.message);
       }
@@ -72,7 +71,6 @@ const CartPage = () => {
     } finally {
       setIsLoading(false);
     }
-   
   };
   return (
     <div className='space-y-10'>
@@ -80,109 +78,125 @@ const CartPage = () => {
 
       {isLoading && <Loading isLoading={isLoading} />}
 
-      {cartItems && (
-        <div className='grid lg:grid-cols-2 grid-cols-1 gap-5'>
-          <div className=''>
-            {cartItems &&
-              cartItems.map((cart) => <Cart key={cart._id} cart={cart} />)}
+      {cartItems.length > 0 ? (
+        <div className='space-y-10'>
+          <div className='flex justify-center items-center'>
+            <h1>
+              You have added ({cartItems.length}) product
+              {cartItems.length > 1 ? "s" : ""}
+            </h1>
           </div>
+          <div className='grid lg:grid-cols-2 grid-cols-1 gap-5'>
+            <div className=''>
+              {cartItems &&
+                cartItems.map((cart) => <Cart key={cart._id} cart={cart} />)}
+            </div>
 
-          <div className=''>
-            <div className='border p-5 '>
-              <h2 className='font-medium text-sm '>Order Summary</h2>
-              <div className=''>
-                {cartItems.map((item) => (
-                  <div key={item._id} className='space-y-5'>
-                    <div className='flex justify-between space-y-1'>
+            <div className=''>
+              <div className='border p-5 '>
+                <h2 className='font-medium text-sm '>Order Summary</h2>
+                <div className=''>
+                  {cartItems.map((item) => (
+                    <div key={item._id} className='space-y-5'>
+                      <div className='flex justify-between space-y-1'>
+                        <h3 className='text-sm text-gray'>
+                          {item.title.substring(0, 25)}..
+                        </h3>
+                        <h3 className='text-sm text-gray'>
+                          {
+                            <CurrencyFormatter
+                              amount={item.price * item.count}
+                            />
+                          }
+                        </h3>
+                      </div>
+                    </div>
+                  ))}
+                  <div className=' border-t space-y-3 py-3 '>
+                    <div className='flex justify-between'>
+                      <h3 className='text-sm text-gray'>Delivery charge</h3>
                       <h3 className='text-sm text-gray'>
-                        {item.title.substring(0, 25)}..
-                      </h3>
-                      <h3 className='text-sm text-gray'>
-                        {<CurrencyFormatter amount={item.price * item.count} />}
+                        <h3>Free</h3>
                       </h3>
                     </div>
-                  </div>
-                ))}
-                <div className=' border-t space-y-3 py-3 '>
-                  <div className='flex justify-between'>
-                    <h3 className='text-sm text-gray'>Delivery charge</h3>
-                    <h3 className='text-sm text-gray'>
-                      <h3>Free</h3>
-                    </h3>
-                  </div>
 
-                  <div className='flex flex-col gap-1'>
-                    <div className='flex items-center gap-1'>
-                      <span>
-                        {" "}
-                        <TbTruckDelivery className='text-sm text-gray ' />
-                      </span>
-                      <h2 className='text-sm text-dark '> Altura Express</h2>
-                    </div>
-                    <div className='flex items-center gap-1'>
-                      <span className='text-sm text-gray '>
-                        {" "}
-                        <CiLocationOn className='text-sm text-gray ' />
-                      </span>
-                      <h4 className='flex gap-1 text-sm text-gray'>
-                        Deliver to{" "}
-                        <u className='text-dark'>Dammam Saudi Arab</u>
-                      </h4>
+                    <div className='flex flex-col gap-1'>
+                      <div className='flex items-center gap-1'>
+                        <span>
+                          {" "}
+                          <TbTruckDelivery className='text-sm text-gray ' />
+                        </span>
+                        <h2 className='text-sm text-dark '> Altura Express</h2>
+                      </div>
+                      <div className='flex items-center gap-1'>
+                        <span className='text-sm text-gray '>
+                          {" "}
+                          <CiLocationOn className='text-sm text-gray ' />
+                        </span>
+                        <h4 className='flex gap-1 text-sm text-gray'>
+                          Deliver to{" "}
+                          <u className='text-dark'>Dammam Saudi Arab</u>
+                        </h4>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className='flex justify-between items-center  border-t'>
-                  <h2>Order Total</h2>
-                  <strong className='text-xl'>= {total()}</strong>
-                </div>
+                  <div className='flex justify-between items-center  border-t'>
+                    <h2>Order Total</h2>
+                    <strong className='text-xl'>= {total()}</strong>
+                  </div>
 
-                <div className='space-y-1'>
-                  <input
-                    type='text'
-                    className='py-2 px-2 bg-orange/30 text-center border border-gray rounded w-full'
-                    placeholder='Add  coupon code here'
-                    required
-                  />
-                  <button
-                    onClick={handleCheckOut}
-                    className={cn(
-                      buttonVariance({ variant: "ocen", size: "full" })
-                    )}
-                  >
-                    Checkout
-                  </button>
+                  <div className='space-y-1'>
+                    <input
+                      type='text'
+                      className='py-2 px-2 bg-orange/30 text-center border border-gray rounded w-full'
+                      placeholder='Add  coupon code here'
+                      required
+                    />
+                    <Button
+                      onClick={handleCheckOut}
+                      variant='gradient'
+                      size='full'
+                      isLoading={isLoading}
+                    >
+                      Checkout
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div className='space-y-5 pb-5'>
+            <div className='w-full bg-slate-200 '>
+              <span className='uppercase text-center block'>
+                Grand Total:{total()}
+                <strong className='font-bold text-xl'>{""}</strong>{" "}
+              </span>
+              <p className='text-center '>
+                The displayed product prices on our site already account for
+                added taxes.
+              </p>
+            </div>
+
+            <div className='flex justify-between '>
+              <Button
+                variant='red'
+                onClick={() => dispatch({ type: "CLEAR_CART" })}
+              >
+                Clear All cart
+              </Button>
+              <Link to='/' className={cn(buttonVariance({ variant: "ocen" }))}>
+                Back to Shopping
+              </Link>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className='flex justify-center items-center min-h-screen'>
+          <h2>Your shopping cart is empty.</h2>
         </div>
       )}
-
-      <div className='space-y-5'>
-        <div className='w-full bg-slate-200 '>
-          <span className='uppercase text-center block'>
-            Grand Total:{total()}
-            <strong className='font-bold text-xl'>{""}</strong>{" "}
-          </span>
-          <p className='text-center '>
-            The displayed product prices on our site already account for added
-            taxes.
-          </p>
-        </div>
-
-        <div className='flex justify-between '>
-          <Button
-            variant='red'
-            onClick={() => dispatch({ type: "CLEAR_CART" })}
-          >
-            Clear All cart
-          </Button>
-          <Link to='/' className={cn(buttonVariance({ variant: "ocen" }))}>
-            Back to Shopping
-          </Link>
-        </div>
-      </div>
     </div>
   );
 };

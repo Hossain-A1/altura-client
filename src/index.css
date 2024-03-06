@@ -10,7 +10,7 @@ html {
   transition: 500ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 .sp {
-  @apply py-20;
+  @apply py-5;
 }
 h1 {
   @apply lg:text-6xl max-md:text-2xl font-[400];

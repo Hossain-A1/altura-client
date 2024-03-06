@@ -5,24 +5,31 @@ import { GrUserManager } from "react-icons/gr";
 import { IoManSharp, IoWoman } from "react-icons/io5";
 import { FaHistory, FaCartPlus, FaBaby } from "react-icons/fa";
 import { cn } from "../lib/utils";
-import  { buttonVariance } from "./ui/Button";
+import { buttonVariance } from "./ui/Button";
 import { useAuthContext } from "../hooks/useAuthContext";
-
+import { useCartContext } from "../hooks/useCartContext";
+import logo from "../assets/images/logo.svg";
 const Navber = () => {
   const [activeLink, setActiveLink] = useState("/");
   const { user } = useAuthContext();
- 
+  const { cartItems } = useCartContext();
 
- 
+  const handleLinkClick = (Link) => {
+    setActiveLink(Link);
+  };
 
   return (
     <header className='lg:h-[100vh] w-40   max-lg:h-20 max-md:w-full  bg-light shadow-sm border-dark/70 lg:border-r-2 max-lg:border-t-2  border-bsticky md:top-0 left-0 bottom-0 border-b border-b-dim_dark/30 fixed  z-[999]'>
       <div className=' max-lg:flex lg:flex-col  px-2 items-center justify-center w-full max-lg:h-full lg:h-full gap-5 '>
-        <ul className='nav-links flex lg:flex-col max-lg:items-center lg:w-full  max-md:text-xs lg:gap-5 h-full font-medium lg:text-sm '>
-          <li className='flex flex-col items-center  max-md:hidden'>
-            <strong className='text-gradient  text-2xl'>Altura</strong>
-
-          
+        <ul className='nav-links flex lg:flex-col max-lg:items-center lg:mt-5 lg:w-full  max-md:text-xs lg:gap-5 h-full font-medium lg:text-sm '>
+          <li className='flex  items-center justify-center  max-md:hidden'>
+            <img src={logo} alt='logo' height={40} width={40} />
+            <Link
+              to='/'
+              className='text-gradient font-semibold italic  text-2xl'
+            >
+              Altura
+            </Link>
           </li>
           <li className=' w-full '>
             <Link
@@ -31,7 +38,6 @@ const Navber = () => {
                 activeLink === "/" ? "active" : ""
               }`}
               onClick={() => handleLinkClick("/")}
-            
             >
               <strong className='link-item lg:text-2xl max-lg:text-xl'>
                 <IoMdHome />
@@ -122,8 +128,11 @@ const Navber = () => {
                 }`}
                 onClick={() => handleLinkClick("/cart")}
               >
-                <strong className=' lg:text-2xl max-lg:text-xl'>
+                <strong className=' lg:text-2xl max-lg:text-xl relative'>
                   <FaCartPlus />
+                  <small className='absolute text-sm border border-red px-1 rounded-full text-gradient -top-3 left-4 z-[10]'>
+                    {cartItems.length}
+                  </small>
                 </strong>{" "}
                 <strong
                   className={` ${activeLink === "/cart" ? "active-text" : ""}`}

@@ -5,7 +5,7 @@ const Loading = ({ isLoading }) => {
     <div className='flex justify-center items-center '>
       <MoonLoader
         size='32px'
-        color='rgb(0, 145, 181)'
+        color='dim_dark'
         loading={isLoading}
         aria-label='Loading spinner'
         data-testid='loader'

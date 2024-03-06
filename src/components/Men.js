@@ -6,6 +6,7 @@ import { CurrencyFormatter } from "./ui/CurrencyFormatter";
 const Men = ({ shoe }) => {
   return (
     <div>
+    
       <div className='shadow-md rounded-xl overflow-hidden space-y-2 py-1'>
         <figure className='lg:h-[16rem]  w-full h-full overflow-hidden relative'>
           <img
