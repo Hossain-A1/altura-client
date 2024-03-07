@@ -18,14 +18,14 @@ const ProductDetails = ({ shoe }) => {
   return (
     <div>
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
-        <div className='w-full h-3/4 space-y-5  '>
+        <div className='w-full h-[28rem] space-y-5'>
           <figure className='  w-full h-full overflow-hidden'>
             <img
               src={activeItem}
               alt={shoe.title}
               height={720}
               width={1280}
-              className='h-full w-full object-fill overflow-hidden '
+              className='h-full w-full object-fill  '
             />
           </figure>
 

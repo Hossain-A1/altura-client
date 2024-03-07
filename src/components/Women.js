@@ -7,7 +7,10 @@ const Women = ({ shoe }) => {
   return (
     <div>
       <div className='shadow-md rounded-xl overflow-hidden space-y-2 py-1'>
-        <figure className='lg:h-[16rem]  w-full h-full overflow-hidden relative'>
+        <Link
+          to={`/women/${shoe._id}`}
+          className='lg:h-[16rem] block  w-full h-full overflow-hidden relative'
+        >
           <img
             src={shoe.images[0]}
             alt='men-shoe'
@@ -17,7 +20,7 @@ const Women = ({ shoe }) => {
           <strong className='absolute top-1 left-2 text-xl'>
             {shoe.title}
           </strong>
-        </figure>
+        </Link>
         <div className='flex items-center justify-between gap-5 pl-2'>
           <span>
             <CurrencyFormatter amount={shoe.price} />
