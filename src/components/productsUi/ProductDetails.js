@@ -18,18 +18,18 @@ const ProductDetails = ({ shoe }) => {
   return (
     <div>
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
-        <div className='w-full h-[28rem] space-y-5'>
-          <figure className='  w-full h-full overflow-hidden'>
+        <div className='w-full lg:h-[28rem]   space-y-5 '>
+          <figure className=' lg:h-[25rem] max-md:h-[15rem]  overflow-hidden'>
             <img
               src={activeItem}
               alt={shoe.title}
               height={720}
-              width={1280}
+              width={1280}         
               className='h-full w-full object-fill  '
             />
           </figure>
 
-          <div className='flex items-center gap-5 justify-center'>
+          <div className='flex items-center gap-5 justify-center '>
             {shoe.images.map((image, i) => (
               <figure key={i} className='w-12 h-12 '>
                 <img
@@ -76,7 +76,9 @@ const ProductDetails = ({ shoe }) => {
                   <strong
                     key={i}
                     onClick={() => handleSizeClick(size)}
-                    className={`size-style ${selectedSize === size ? 'hover:bg-blue text-white' : ''}`}
+                    className={`size-style ${
+                      selectedSize === size ? "hover:bg-blue text-white" : ""
+                    }`}
                   >
                     {size}
                   </strong>

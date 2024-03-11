@@ -10,8 +10,9 @@ html {
   transition: 500ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 .sp {
-  @apply py-5;
+  @apply py-10;
 }
+
 h1 {
   @apply lg:text-6xl max-md:text-2xl font-[400];
 }
@@ -27,12 +28,12 @@ p {
 }
 
 .active-text{
-  @apply text-black
+  @apply text-black max-md:text-[0.60rem]
 }
 
 /* size style */
 .size-style{
-  @apply bg-black p-2 rounded-full text-light text-sm cursor-pointer 
+  @apply bg-black lg:p-2 p-1 rounded-full text-light lg:text-sm text-xs cursor-pointer 
 }
 
 

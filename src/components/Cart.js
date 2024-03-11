@@ -5,11 +5,13 @@ const Cart = ({ cart }) => {
   const { dispatch } = useCartContext();
 
   return (
-    <div className=''>
-      <div className='flex lg:justify-between items-center border-t py-2'>
+    <div className='flex flex-col justify-center items-center'>
+      <div className='flex lg:justify-between justify-center gap-2 items-center border-t py-2'>
         <div className='lg:flex max-lg:flex-col gap-3 items-center'>
           <figure className='h-20 w-20 overflow-hidden'>
             <img
+            height={400}
+            width={400}
               src={cart.images[0]}
               alt={cart.title}
               className='h-full w-full object-fill'
@@ -18,7 +20,7 @@ const Cart = ({ cart }) => {
 
           <div>
             <i>{cart.title}</i>
-            <div className='flex gap-5'>
+            <div className='flex items-center gap-5'>
               <div className='color-shoe'>
                 <select name='color' id='color'>
                 <option >color</option>
@@ -46,7 +48,7 @@ const Cart = ({ cart }) => {
             <u className='text-xs'>Add to Favourite</u>
           </div>
         </div>
-        <div className='quantity flex flex-col justify-end items-end gap-1'>
+        <div className='quantity flex flex-col justify-center  items-end gap-1'>
           <button
             onClick={() => dispatch({ type: "REMOVE_CART", payload: cart })}
           >

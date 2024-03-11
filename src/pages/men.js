@@ -21,19 +21,21 @@ const MenPage = ({ native }) => {
 
      {
       native &&(
-        <div className='flex justify-center items-center'>
+       <div className="fixed lg:top-0 top-10 bg-light py-5 w-full  z-[990] left-0 right-0">
+         <div className=' flex justify-center items-center'>
         <input
         onChange={handleSearch}
         value={searchQuery}
           type='search'
           placeholder='search'
-          className='py-2 px-4 rounded-full outline-none active'
+          className='py-2 px-4  rounded-full outline-none active'
         />
       </div>
+       </div>
       )
      }
       {shoes && (
-        <div className=' grid lg:grid-cols-3 2xl:grid-cols-4 grid-cols-1 gap-5 '>
+        <div className=' grid lg:grid-cols-3 2xl:grid-cols-4 grid-cols-1 gap-5 sp'>
           {!native && shoes
             ? shoes
                 .filter((item) => item.category === "men")

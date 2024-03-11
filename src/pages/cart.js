@@ -86,7 +86,7 @@ const CartPage = () => {
               {cartItems.length > 1 ? "s" : ""}
             </h1>
           </div>
-          <div className='grid lg:grid-cols-2 grid-cols-1 gap-5'>
+          <div className='grid lg:grid-cols-2  grid-cols-1 gap-5'>
             <div className=''>
               {cartItems &&
                 cartItems.map((cart) => <Cart key={cart._id} cart={cart} />)}
@@ -168,18 +168,18 @@ const CartPage = () => {
           </div>
 
           <div className='space-y-5 pb-5'>
-            <div className='w-full bg-slate-200 '>
+            <div className='w-full bg-slate-200 py-5 px-1 '>
               <span className='uppercase text-center block'>
                 Grand Total:{total()}
                 <strong className='font-bold text-xl'>{""}</strong>{" "}
               </span>
-              <p className='text-center '>
+              <p className='text-center  '>
                 The displayed product prices on our site already account for
                 added taxes.
               </p>
             </div>
 
-            <div className='flex justify-between '>
+            <div className='flex justify-between gap-1 max-md:text-xs whitespace-nowrap'>
               <Button
                 variant='red'
                 onClick={() => dispatch({ type: "CLEAR_CART" })}
