@@ -32,7 +32,7 @@ const WomenPage = ({native}) => {
      }
 
       {shoes && (
-        <div className=' grid lg:grid-cols-3 2xl:grid-cols-4 grid-cols-1 gap-5 sp'>
+        <div className=' grid lg:grid-cols-3 2xl:grid-cols-4 grid-cols-1 gap-5 '>
           {!native && shoes
             ? shoes
             .filter((item) => item.category === "women").slice(0, 3)
@@ -43,7 +43,7 @@ const WomenPage = ({native}) => {
                 .map((shoe) => <Women key={shoe._id} shoe={shoe} />)}
         </div>
       )}
-       <div className=" flex justify-center items-center">
+       <div className=" flex justify-center  items-center pt-5">
           {
             !native &&(
               <Link to='/women' className={cn(buttonVariance({variant:"gradient"}))}>See more</Link>

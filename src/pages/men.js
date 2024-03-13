@@ -35,7 +35,7 @@ const MenPage = ({ native }) => {
       )
      }
       {shoes && (
-        <div className=' grid lg:grid-cols-3 2xl:grid-cols-4 grid-cols-1 gap-5 sp'>
+        <div className=' grid lg:grid-cols-3 2xl:grid-cols-4 grid-cols-1 gap-5'>
           {!native && shoes
             ? shoes
                 .filter((item) => item.category === "men")
@@ -48,7 +48,7 @@ const MenPage = ({ native }) => {
                 .map((shoe) => <Men key={shoe._id} shoe={shoe} />)}
         </div>
       )}
-      <div className=' flex justify-center items-center '>
+      <div className=' flex justify-center items-center pt-5'>
         {!native && (
           <Link
             to='/men'

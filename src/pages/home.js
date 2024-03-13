@@ -1,5 +1,6 @@
 import Hero from "../components/Hero";
 import Testimonial from "../components/Testimonial";
+import UserReviw from "../components/UserReview";
 import useFetch from "../hooks/useFetch";
 import KidsPage from "./kids";
 import MenPage from "./men";
@@ -18,6 +19,7 @@ const HomePage = () => {
       <WomenPage />
       <KidsPage />
       <Testimonial />
+      <UserReviw/>
     </main>
   );
 };
