@@ -6,7 +6,7 @@ export const SlideData = [
     comment:
       "Wow, these shoes are incredibly comfortable! I feel like I'm walking on clouds.",
     photo: "https://randomuser.me/api/portraits/men/9.jpg",
-    date: "2023/02/23",
+    date: "2023/02/28",
     name: "nickel",
   },
   {
@@ -33,7 +33,7 @@ export const SlideData = [
     comment:
       "The quality of these shoes is top-notch. They've held up really well even after frequent wear",
     photo: "https://randomuser.me/api/portraits/men/72.jpg",
-    date: "2023/02/23",
+    date: "2023/09/23",
     name: "matchu",
   },
   {
@@ -51,7 +51,7 @@ export const SlideData = [
     comment:
       "Not only do these shoes look great, but they also provide excellent support. I can wear them all day without any discomfort.",
     photo: "https://randomuser.me/api/portraits/women/75.jpg",
-    date: "2023/02/23",
+    date: "2023/03/23",
     name: "Alejabeth",
   },
   {
@@ -60,7 +60,7 @@ export const SlideData = [
     comment:
       "The attention to detail in the craftsmanship of these shoes is impressive. Every stitch and seam is perfect.",
     photo: "https://randomuser.me/api/portraits/lego/0.jpg",
-    date: "2023/02/23",
+    date: "2023/02/29",
     name: "Olka",
   },
   {
@@ -69,7 +69,7 @@ export const SlideData = [
     comment:
       "I've tried many shoes in the past, but none have been as stylish and comfortable as these.",
     photo: "https://randomuser.me/api/portraits/women/68.jpg",
-    date: "2023/02/23",
+    date: "2023/06/23",
     name: "Nikchi",
   },
   {

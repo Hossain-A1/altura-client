@@ -4,7 +4,6 @@ import { buttonVariance } from "./ui/Button";
 import { CurrencyFormatter } from "./ui/CurrencyFormatter";
 
 const Kids = ({ shoe }) => {
-  console.log(shoe);
   return (
     <div>
       <div className='shadow-md rounded-xl overflow-hidden space-y-2 py-1'>
@@ -15,7 +14,6 @@ const Kids = ({ shoe }) => {
           <img
             src={shoe.images[0]}
             alt='men-shoe'
-            property=''
             className='h-full w-full object-fill  '
           />
           <strong className='absolute top-1 left-2 text-xl'>

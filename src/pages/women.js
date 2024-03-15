@@ -35,7 +35,7 @@ const WomenPage = ({native}) => {
         <div className=' grid lg:grid-cols-3 2xl:grid-cols-4 grid-cols-1 gap-5 '>
           {!native && shoes
             ? shoes
-            .filter((item) => item.category === "women").slice(0, 3)
+            .filter((item) => item.category === "women").slice(10, 13)
                 .map((shoe) => <Women key={shoe._id} shoe={shoe} native />)
             : filteredProducts && filteredProducts
                 .filter((item) => item.category === "women")

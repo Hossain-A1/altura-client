@@ -10,8 +10,8 @@ const Hero = ({ product }) => {
   return (
     <section className='max-md:mt-10 h-full w-full'>
       <div className='grid grid-cols-1 lg:grid-cols-2 '>
-        <div>
-          <h2 className='lg:text-6xl text-2xl font-bold uppercase w-20'>
+        <div className="space-y-5">
+          <h2 className='lg:text-5xl text-2xl font-bold uppercase w-20'>
             Altura Your <b className='text-gradient'>Perfect Pair</b> Today!
           </h2>
           <p className='w-3/4'>
@@ -19,7 +19,7 @@ const Hero = ({ product }) => {
             as uniquely crafted footwear.
           </p>
 
-          <div className='bg-dark/5 py-7 px-3 lg:gap-10 gap-5 flex justify-between items-center'>
+          <div className='bg-dark/5 py-7  px-3 lg:gap-10 gap-5 flex justify-between items-center'>
             <Link
               to='/men'
               className={cn(

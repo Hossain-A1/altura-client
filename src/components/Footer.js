@@ -11,8 +11,8 @@ const Footer = () => {
           <div>
             <span className='text-6xl text-gradient  font-semibold'>#</span>
             <h2>
-              SKYWHAKFORGE <br />
-              Providing reliable drones since 2002
+            <b className='text-gradient'>Altura</b> <br />
+              Providing reliable shoes since 2002
             </h2>
           </div>
         </div>

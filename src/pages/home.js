@@ -1,25 +1,32 @@
 import Hero from "../components/Hero";
+import Story from "../components/Story";
 import Testimonial from "../components/Testimonial";
-import UserReviw from "../components/UserReview";
+import UserReview from "../components/UserReview";
 import useFetch from "../hooks/useFetch";
 import KidsPage from "./kids";
 import MenPage from "./men";
 import WomenPage from "./women";
 
 const HomePage = () => {
-  const { data: producs } = useFetch("/api/products");
+  // Fetch products data
+  const { data: products } = useFetch("/api/products");
+
+  // Render Hero component with the first product
+  const renderHero = () => {
+    if (!products || products.length === 0) return null;
+    const product = products[0];
+    return <Hero key={product._id} product={product} />;
+  };
 
   return (
     <main className='space-y-20'>
-      {producs &&
-        producs
-          .slice(0, 1)
-          .map((product) => <Hero key={product._id} product={product} />)}
+      {renderHero()}
       <MenPage />
       <WomenPage />
       <KidsPage />
       <Testimonial />
-      <UserReviw/>
+      <UserReview />
+      <Story />
     </main>
   );
 };
