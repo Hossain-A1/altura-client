@@ -19,8 +19,8 @@ const Navber = () => {
   };
 
   return (
-    <header>
-      <div className='max-lg:h-20 z-[999]  max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:right-0  w-full lg:hidden'>
+    <header className="">
+      <div className='max-lg:h-20 z-[999]  max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:right-0  w-full lg:hidden 2xl:mt-20'>
         <div className=' max-lg:absolute bg-light   flex justify-center w-full items-center gap-5'>
           <div className=' flex justify-center items-center w-full'>
             <li className='flex  items-center justify-center  '>

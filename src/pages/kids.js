@@ -13,7 +13,7 @@ const KidsPage = ({ native }) => {
     shoes || []
   );
   return (
-    <div className='space-y-5'>
+    <div className='space-y-5 max-lg:mt-20'>
       {error && <Error error={error} />}
 
       {isLoading && <Loading isLoading={isLoading} />}
@@ -24,7 +24,8 @@ const KidsPage = ({ native }) => {
               onChange={handleSearch}
               value={searchQuery}
               type='search'
-              placeholder='search'
+              placeholder='s
+              Search brand'
               className='py-2 px-4 rounded-full outline-none active'
             />
           </div>

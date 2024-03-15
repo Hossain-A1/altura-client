@@ -2,14 +2,14 @@ import { FaFacebookF, FaYoutube, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <footer>
-      <div className='bg-gradient/10 w-full py-3 hover:bg-blue/40 eq flex items-center justify-center'>
+    <footer className="bg-dim_dark text-black ">
+      <div className='bg-gradient/10 w-full py-3 hover:bg-blue/40 eq flex items-center justify-center text-inherit'>
         <button onClick={() => window.scrollTo(0, 0)}>Back to Top</button>
       </div>
-      <div className='grid grid-cols-3 max-lg:grid-cols-1 gap-5  text-dark p-5'>
+      <div className='grid grid-cols-3 max-lg:grid-cols-1 gap-5  text-inherit p-5'>
         <div className='flex flex-col items-center p-10'>
           <div>
-            <span className='text-6xl  font-semibold'>#</span>
+            <span className='text-6xl text-gradient  font-semibold'>#</span>
             <h2>
               SKYWHAKFORGE <br />
               Providing reliable drones since 2002
@@ -87,12 +87,12 @@ const Footer = () => {
             </Link>
           </div>
 
-          <div className='social text-light flex flex-col items-center gap-5'>
-            <h2 className='text-md text-light/60 font-semibold underline underline-offset-4 uppercase'>
+          <div className='social flex flex-col items-center gap-5'>
+            <h2 className='text-md text-dark/60 font-semibold underline underline-offset-4 uppercase'>
               Social
             </h2>
 
-            <div className='flex gap-5 justify-center text-light'>
+            <div className='flex gap-5 justify-center text-gradient'>
               {" "}
               <span>
                 <FaFacebookF className='text-4xl ' />

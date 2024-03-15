@@ -11,7 +11,7 @@ const WomenPage = ({native}) => {
   const { data: shoes, isLoading, error } = useFetch('/api/products');
   const {searchQuery,handleSearch,filteredProducts} = useProductSearch(shoes || [])
   return (
-    <div className="space-y-5 ">
+    <div className="space-y-5 max-lg:mt-20">
       {error && <Error error={error} />}
 
       {isLoading && <Loading isLoading={isLoading} />}
@@ -23,7 +23,7 @@ const WomenPage = ({native}) => {
         onChange={handleSearch}
         value={searchQuery}
           type='search'
-          placeholder='search'
+          placeholder='Search brand'
           className='py-2 px-4 rounded-full outline-none active'
         />
       </div>

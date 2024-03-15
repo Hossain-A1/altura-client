@@ -1,4 +1,4 @@
-import {SlideData} from "../data/SlideData"
+import { SlideData } from "../data/SlideData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,7 +11,7 @@ const UserReviw = () => {
   return (
     <main>
       <section className='space-y-5'>
-        <h2 className="text-xl text-center font-semibold">Our user reviews.</h2>
+        <h2 className='text-xl text-center font-semibold'>Our user reviews.</h2>
         <div className='flex-1 flex items-center  justify-center flex-wrap gap-10 bg-gradient-to-bl from-gradient to-blue/70 py-10 px-5'>
           <Swiper
             autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -43,37 +43,37 @@ const UserReviw = () => {
                 key={data.date}
                 className='py-10 px-5 space-y-5 rounded-2xl shadow-xl bg-light'
               >
-               <div className="h-[14rem] w-full">
-              <div className="h-[11rem] w-full space-y-2 ">
-              <div className='flex gap-3 text-2xl'>
-                  <strong className='text-yellow-500'>{data.icon}</strong>
-                  <strong className='text-yellow-500'>{data.icon}</strong>
-                  <strong className='text-yellow-500'>{data.icon}</strong>
-                  <strong className='text-yellow-500'>{data.icon}</strong>
-                  <strong className='text-yellow-500'>{data.icon}</strong>
-                </div>
-                <div className='space-y-2'>
-                  <h3 className='font-bold'>{data.title}</h3>
-                  <h4>{data.comment}</h4>
-                </div>
-              </div>
-                <div className='flex gap-3'>
-                  <div className='overflow-hidden h-16 rounded-full w-16'>
-                    <img
-                      src={data.photo}
-                      alt={data.name}
-                      height='200'
-                      width='200'
-                      className='h-full w-full object-cover'
-                      priority
-                    />
+                <div className='h-[14rem] w-full'>
+                  <div className='h-[11rem] w-full space-y-2 '>
+                    <div className='flex gap-3 text-2xl'>
+                      <strong className='text-orange'>{data.icon}</strong>
+                      <strong className='text-orange'>{data.icon}</strong>
+                      <strong className='text-orange'>{data.icon}</strong>
+                      <strong className='text-orange'>{data.icon}</strong>
+                      <strong className='text-orange'>{data.icon}</strong>
+                    </div>
+                    <div className='space-y-2'>
+                      <h3 className='font-bold'>{data.title}</h3>
+                      <h4>{data.comment}</h4>
+                    </div>
                   </div>
-                  <div className='flex flex-col justify-center'>
-                    <strong>{data.name}</strong>
-                    <small>{data.date}</small>
+                  <div className='flex gap-3'>
+                    <div className='overflow-hidden h-16 rounded-full w-16'>
+                      <img
+                        src={data.photo}
+                        alt={data.name}
+                        height='200'
+                        width='200'
+                        className='h-full w-full object-cover'
+                        priority
+                      />
+                    </div>
+                    <div className='flex flex-col justify-center'>
+                      <strong>{data.name}</strong>
+                      <small>{data.date}</small>
+                    </div>
                   </div>
                 </div>
-               </div>
               </SwiperSlide>
             ))}
           </Swiper>

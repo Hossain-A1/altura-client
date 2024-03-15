@@ -8,10 +8,10 @@ const Hero = ({ product }) => {
   const [activeItem, setActiveItem] = useState(product.images[0]);
   const navigate = useNavigate();
   return (
-    <section className='sp-0'>
+    <section className='max-md:mt-10 h-full w-full'>
       <div className='grid grid-cols-1 lg:grid-cols-2 '>
-        <div className=''>
-          <h2 className='text-6xl font-bold uppercase w-20'>
+        <div>
+          <h2 className='lg:text-6xl text-2xl font-bold uppercase w-20'>
             Altura Your <b className='text-gradient'>Perfect Pair</b> Today!
           </h2>
           <p className='w-3/4'>
