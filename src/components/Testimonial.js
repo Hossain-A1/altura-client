@@ -9,7 +9,7 @@ const Testimonial = () => {
       <div className='bg-orange/20 grid lg:grid-cols-2 grid-cols-1 gap-5 p-5'>
         <div className='space-y-3'>
           <h2 className=' text-2xl font-bold '>
-            Over <b className='text-red'>90,000</b> people love to buy shoe
+            Over <b className='text-red'>90,000</b> people love to buy shoes
             using <b className='text-gradient'>Altura</b>
           </h2>
           <p className='w-3/4'>

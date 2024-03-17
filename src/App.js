@@ -14,10 +14,12 @@ import MenId from "./pages/menId";
 import WomenId from "./pages/womenId";
 import KidId from "./pages/kidId";
 import Footer from "./components/Footer";
+import NotFoundPage from "./pages/notFound";
+import SuccessPage from "./pages/success";
 
 const App = () => {
   return (
-    <main >
+    <main>
       <Toaster />
       <Navber />
       <Routes>
@@ -33,8 +35,10 @@ const App = () => {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/profile' element={<ProfilePage />} />
+        <Route path='/success' element={<SuccessPage />} />
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </main>
   );
 };

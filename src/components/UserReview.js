@@ -44,7 +44,7 @@ const UserReviw = () => {
                 className='py-10 px-5 space-y-5 rounded-2xl shadow-xl bg-light'
               >
                 <div className='h-[14rem] w-full'>
-                  <div className='h-[11rem] w-full space-y-2 '>
+                  <div className='lg:h-[11rem] h-[12rem] w-full space-y-2 '>
                     <div className='flex gap-3 text-2xl'>
                       <strong className='text-orange'>{data.icon}</strong>
                       <strong className='text-orange'>{data.icon}</strong>
@@ -58,7 +58,7 @@ const UserReviw = () => {
                     </div>
                   </div>
                   <div className='flex gap-3'>
-                    <div className='overflow-hidden h-16 rounded-full w-16'>
+                    <div className='overflow-hidden lg:h-16 lg:w-16 h-12 w-12  rounded-full '>
                       <img
                         src={data.photo}
                         alt={data.name}
