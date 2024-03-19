@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
-import Button from "./ui/Button";
+import Button, { buttonVariance } from "./ui/Button";
 import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { cn } from "../lib/utils";
 
 const Profile = () => {
   const { user, dispatch } = useAuthContext();
@@ -110,12 +111,16 @@ const Profile = () => {
                 <h4>{email}</h4>
               </div>
 
-              <div className='flex items-center justify-center'>
+              <div className='flex items-center gap-5 justify-center'>
                 {user && (
                   <Button variant='red' onClick={handleLogout}>
                     Logout
                   </Button>
                 )}
+
+                <div>
+                  {role === "admin" && <Link to='/alluser' className={cn(buttonVariance({variant:'outline'}))}>See all user</Link>}
+                </div>
               </div>
             </div>
           </div>

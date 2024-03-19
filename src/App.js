@@ -16,6 +16,7 @@ import KidId from "./pages/kidId";
 import Footer from "./components/Footer";
 import NotFoundPage from "./pages/notFound";
 import SuccessPage from "./pages/success";
+import AllUserPage from "./pages/alluser";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route path='/story' element={<OurStore />} />
         <Route path='/cart' element={<CartPage />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/alluser' element={<AllUserPage />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/success' element={<SuccessPage />} />
