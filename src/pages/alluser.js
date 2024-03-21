@@ -16,7 +16,7 @@ const AllUserPage = () => {
           <h2 className='text-2xl font-semibold'>Customers</h2>
           <small clasName=''>find all platfrom customers here</small>
         </div>
-        <div className='flex lg:gap-5 gap-2 justify-between'>
+        <div className='flex max-md:flex-col lg:gap-5 gap-2 justify-between'>
           <div className='p-3 w-full shadow-xl border flex justify-between gap-3 place-items-end'>
             <div className='flex flex-col'>
               <small>General customers</small>
@@ -49,17 +49,17 @@ const AllUserPage = () => {
           <div>
             <h2  className='text-xl text-dark font-semibold'>All Customers ({users?.length})</h2>
           </div>
-          <div className="p-1 flex gap-5 justify-between bg-dim_dark text-black">
-            <h2>Name</h2>
-            <h2>Email</h2>
-            <h2>Role</h2>
-            <h2>Status</h2>
-            <h2>Membership</h2>
+          <div className="p-1  flex max-md:flex-col gap-5 justify-between bg-dim_dark text-black">
+            <h2 className="w-[22%]">Name</h2>
+            <h2 className="w-[28%]">Email</h2>
+            <h2 className="w-[10%]">Role</h2>
+            <h2 className="w-[10%]">Status</h2>
+            <h2 className="w-[20%] ">Membership</h2>
           </div>
           
       </div>
 
-      <div>
+      <div className="pb-20">
         {users && users.map((user) => <AllUser key={user._id} user={user} />)}
       </div>
     </div>
