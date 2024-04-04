@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <main className=' bg-light flex flex-col items-end container sp mt-10 '>
       <BrowserRouter>
-        <div className='lg:w-[calc(100vw-14rem)] xl:w-[calc(100vw-15rem)]  2xl:w-[calc(100vw-18rem)] w-full h-full'>
+        <div className='lg:w-[calc(100vw-14rem)] xl:w-[calc(100vw-17rem)]  2xl:w-[calc(100vw-18rem)] w-full h-full'>
           <AuthContextProvider>
             <CartContextProvider >
               <App />
